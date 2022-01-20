@@ -7,7 +7,7 @@ public class Main {
 
         BicycleShop bicycleShop = new BicycleShop();
 
-        System.out.println(bicycleShop.getProducts().get(2));
+        bicycleShop.getProducts().forEach((k, v) -> System.out.println("Артикул " + k + v));
         System.out.println();
 
         bicycleShop.print();

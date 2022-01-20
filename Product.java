@@ -1,20 +1,13 @@
 import java.util.Objects;
 
 public class Product implements Comparable<Product> {
-    private String id;
     private String name;
     private int count;
 
-    public Product(String id, String name, int count) {
-        this.id = id;
+    public Product(String name, int count) {
         this.name = name;
         this.count = count;
     }
-
-    public String getId() {
-        return id;
-    }
-
 
     public String getName() {
         return name;
@@ -37,20 +30,18 @@ public class Product implements Comparable<Product> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return count == product.count && id.equals(product.id) && name.equals(product.name);
+        return count == product.count && Objects.equals(name, product.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, count);
+        return Objects.hash(name, count);
     }
 
     @Override
     public String toString() {
-        return "Товар {" +
-                "id='" + id + '\'' +
-                ", Наименование='" + name + '\'' +
-                ", Количество=" + count +
+        return  " наименование='" + name + '\'' +
+                ", количество=" + count +
                 '}';
     }
 
