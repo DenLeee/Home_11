@@ -21,35 +21,8 @@ public class BicycleShop {
         return products;
     }
 
-    public Map.Entry<String,Product> getProduct(String id) {
-        for(Map.Entry<String, Product> map: products.entrySet()) {
-            if (map.getKey().equals(id))
-                return map;
-        }
-        return null;
-    }
-
-    public void print() {
-//        Set<Product> set = new TreeSet<>(products.values());
-//        Iterator iterator = set.iterator();
-//        Map<String, Product> temp = new HashMap<>(products.size());
-//        while (iterator.hasNext()) {
-//            for (Map.Entry<String, Product> map: products.entrySet()) {
-//                Product product = map.getValue();
-//                if (product.compareTo((Product) iterator.next()) == 0) {
-//                    temp.put(map.getKey(), map.getValue());
-//                }
-//            }
-//        }
-
-        Map<String, Product> temp = products.entrySet()
-                .stream()
-                .sorted(Map.Entry.comparingByValue())
-                .collect(Collectors
-                        .toMap(Map.Entry::getKey,
-                                Map.Entry::getValue,
-                                (t1, t2) -> t1, LinkedHashMap::new));
-        temp.forEach((k, v) -> System.out.println("Артикул " + k + v));
+    public Product getProduct(String id) {
+        return products.get(id);
     }
 
 }
