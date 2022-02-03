@@ -17,12 +17,21 @@ public class BicycleShop {
         products.put("Bс066", new Product("Цепь", 19));
     }
 
-    public Map<String, Product> getProducts() {
-        return products;
-    }
-
     public Product getProduct(String id) {
         return products.get(id);
     }
 
+    private Map<String, Product> report(Map<String, Product> products) {
+        return products.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors
+                        .toMap(Map.Entry::getKey,
+                                Map.Entry::getValue,
+                                (t1, t2) -> t1, LinkedHashMap::new));
+    }
+
+    public void printReport() {
+        report(products).forEach((k, v) -> System.out.println("Артикул " + k + v));
+    }
 }
