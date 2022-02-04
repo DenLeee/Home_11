@@ -21,7 +21,7 @@ public class BicycleShop {
         return products.get(id);
     }
 
-    private Map<String, Product> report(Map<String, Product> products) {
+    public Map<String, Product> report() {
         return products.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue())
@@ -31,7 +31,4 @@ public class BicycleShop {
                                 (t1, t2) -> t1, LinkedHashMap::new));
     }
 
-    public void printReport() {
-        report(products).forEach((k, v) -> System.out.println("Артикул " + k + v));
-    }
 }

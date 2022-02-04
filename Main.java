@@ -8,10 +8,14 @@ public class Main {
 
         BicycleShop bicycleShop = new BicycleShop();
 
-        bicycleShop.printReport();
+
+        printReport(bicycleShop);
         System.out.println();
 
         System.out.println(bicycleShop.getProduct("Bt997"));
 
+    }
+    public static void printReport(BicycleShop bicycleShop) {
+        bicycleShop.report().forEach((k, v) -> System.out.println("Артикул " + k + v));
     }
 }
