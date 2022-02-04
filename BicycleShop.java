@@ -21,7 +21,8 @@ public class BicycleShop {
         return products.get(id);
     }
 
-    public Map<String, Product> report() {
+
+    Map<String, Product> report() {
         return products.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue())
